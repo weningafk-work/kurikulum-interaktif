@@ -1,7 +1,7 @@
 export const initialCourses = [
 	// SEMESTER 1 (Dasar & Umum)
 	{
-		kode: "UNI101",
+		kode_mata_kuliah: "UNI101",
 		nama_mata_kuliah: "Pendidikan Agama",
 		sks: 2,
 		kelompok_mata_kuliah: "Umum",
@@ -15,7 +15,7 @@ export const initialCourses = [
 		catatan_perubahan: [],
 	},
 	{
-		kode: "UNI102",
+		kode_mata_kuliah: "UNI102",
 		nama_mata_kuliah: "Pancasila & Kewarganegaraan",
 		sks: 2,
 		kelompok_mata_kuliah: "Umum",
@@ -29,7 +29,7 @@ export const initialCourses = [
 		catatan_perubahan: [],
 	},
 	{
-		kode: "CS101",
+		kode_mata_kuliah: "CS101",
 		nama_mata_kuliah: "Dasar Pemrograman",
 		sks: 3,
 		kelompok_mata_kuliah: "Sains Dasar",
@@ -86,7 +86,7 @@ export const initialCourses = [
 		],
 	},
 	{
-		kode: "CS102",
+		kode_mata_kuliah: "CS102",
 		nama_mata_kuliah: "Matematika Diskrit",
 		sks: 3,
 		kelompok_mata_kuliah: "Sains Dasar",
@@ -100,7 +100,7 @@ export const initialCourses = [
 		catatan_perubahan: [],
 	},
 	{
-		kode: "CS103",
+		kode_mata_kuliah: "CS103",
 		nama_mata_kuliah: "Kalkulus 1",
 		sks: 3,
 		kelompok_mata_kuliah: "Sains Dasar",
@@ -114,7 +114,7 @@ export const initialCourses = [
 		catatan_perubahan: [],
 	},
 	{
-		kode: "CS104",
+		kode_mata_kuliah: "CS104",
 		nama_mata_kuliah: "Pengantar Teknologi Informasi",
 		sks: 2,
 		kelompok_mata_kuliah: "Sains Dasar",
@@ -128,7 +128,7 @@ export const initialCourses = [
 		catatan_perubahan: [],
 	},
 	{
-		kode: "CS105",
+		kode_mata_kuliah: "CS105",
 		nama_mata_kuliah: "Bahasa Inggris Teknik",
 		sks: 2,
 		kelompok_mata_kuliah: "Sains Dasar",
@@ -142,7 +142,7 @@ export const initialCourses = [
 		catatan_perubahan: [],
 	},
 	{
-		kode: "CS106",
+		kode_mata_kuliah: "CS106",
 		nama_mata_kuliah: "Fisika Dasar",
 		sks: 2,
 		kelompok_mata_kuliah: "Sains Dasar",
@@ -156,7 +156,7 @@ export const initialCourses = [
 		catatan_perubahan: [],
 	},
 	{
-		kode: "CS107",
+		kode_mata_kuliah: "CS107",
 		nama_mata_kuliah: "Logika Informatika",
 		sks: 2,
 		kelompok_mata_kuliah: "Sains Dasar",
@@ -170,7 +170,7 @@ export const initialCourses = [
 		catatan_perubahan: [],
 	},
 	{
-		kode: "CS108",
+		kode_mata_kuliah: "CS108",
 		nama_mata_kuliah: "Etika Profesi",
 		sks: 2,
 		kelompok_mata_kuliah: "Inti Teknik Geomatika",
@@ -186,7 +186,7 @@ export const initialCourses = [
 
 	// SEMESTER 2
 	{
-		kode: "CS201",
+		kode_mata_kuliah: "CS201",
 		nama_mata_kuliah: "Struktur Data",
 		sks: 3,
 		kelompok_mata_kuliah: "Sains Dasar",
@@ -200,7 +200,7 @@ export const initialCourses = [
 		catatan_perubahan: [],
 	},
 	{
-		kode: "CS202",
+		kode_mata_kuliah: "CS202",
 		nama_mata_kuliah: "Pemrograman Berorientasi Objek",
 		sks: 3,
 		kelompok_mata_kuliah: "Sains Dasar",
@@ -214,7 +214,7 @@ export const initialCourses = [
 		catatan_perubahan: [],
 	},
 	{
-		kode: "CS203",
+		kode_mata_kuliah: "CS203",
 		nama_mata_kuliah: "Arsitektur Komputer",
 		sks: 3,
 		kelompok_mata_kuliah: "Sains Dasar",
@@ -228,7 +228,7 @@ export const initialCourses = [
 		catatan_perubahan: [],
 	},
 	{
-		kode: "CS204",
+		kode_mata_kuliah: "CS204",
 		nama_mata_kuliah: "Kalkulus 2",
 		sks: 3,
 		kelompok_mata_kuliah: "Sains Dasar",
@@ -242,7 +242,7 @@ export const initialCourses = [
 		catatan_perubahan: [],
 	},
 	{
-		kode: "CS205",
+		kode_mata_kuliah: "CS205",
 		nama_mata_kuliah: "Aljabar Linear",
 		sks: 2,
 		kelompok_mata_kuliah: "Sains Dasar",
@@ -256,7 +256,7 @@ export const initialCourses = [
 		catatan_perubahan: [],
 	},
 	{
-		kode: "CS206",
+		kode_mata_kuliah: "CS206",
 		nama_mata_kuliah: "Bahasa Indonesia",
 		sks: 2,
 		kelompok_mata_kuliah: "Umum",
@@ -270,7 +270,7 @@ export const initialCourses = [
 		catatan_perubahan: [],
 	},
 	{
-		kode: "CS207",
+		kode_mata_kuliah: "CS207",
 		nama_mata_kuliah: "Sistem Digital",
 		sks: 2,
 		kelompok_mata_kuliah: "Sains Dasar",
@@ -284,7 +284,7 @@ export const initialCourses = [
 		catatan_perubahan: [],
 	},
 	{
-		kode: "CS208",
+		kode_mata_kuliah: "CS208",
 		nama_mata_kuliah: "Organisasi Manajemen",
 		sks: 2,
 		kelompok_mata_kuliah: "Sains Dasar",
@@ -298,7 +298,7 @@ export const initialCourses = [
 		catatan_perubahan: [],
 	},
 	{
-		kode: "CS209",
+		kode_mata_kuliah: "CS209",
 		nama_mata_kuliah: "Komunikasi Interpersonal",
 		sks: 2,
 		kelompok_mata_kuliah: "Inti Teknik Geomatika",
@@ -312,7 +312,7 @@ export const initialCourses = [
 		catatan_perubahan: [],
 	},
 	{
-		kode: "CS210",
+		kode_mata_kuliah: "CS210",
 		nama_mata_kuliah: "English for Presentation",
 		sks: 2,
 		kelompok_mata_kuliah: "Inti Teknik Geomatika",
@@ -328,7 +328,7 @@ export const initialCourses = [
 
 	// SEMESTER 3 s/d 8 (Hanya menambahkan array kosong agar struktur seragam)
 	{
-		kode: "WD301",
+		kode_mata_kuliah: "WD301",
 		nama_mata_kuliah: "Web Development",
 		sks: 3,
 		kelompok_mata_kuliah: "Sains Dasar",
@@ -342,7 +342,7 @@ export const initialCourses = [
 		catatan_perubahan: [],
 	},
 	{
-		kode: "CS302",
+		kode_mata_kuliah: "CS302",
 		nama_mata_kuliah: "Sistem Operasi",
 		sks: 3,
 		kelompok_mata_kuliah: "Sains Dasar",
@@ -356,7 +356,7 @@ export const initialCourses = [
 		catatan_perubahan: [],
 	},
 	{
-		kode: "CS303",
+		kode_mata_kuliah: "CS303",
 		nama_mata_kuliah: "Basis Data",
 		sks: 3,
 		kelompok_mata_kuliah: "Sains Dasar",
@@ -370,7 +370,7 @@ export const initialCourses = [
 		catatan_perubahan: [],
 	},
 	{
-		kode: "CS304",
+		kode_mata_kuliah: "CS304",
 		nama_mata_kuliah: "Jaringan Komputer",
 		sks: 3,
 		kelompok_mata_kuliah: "Sains Dasar",
@@ -384,7 +384,7 @@ export const initialCourses = [
 		catatan_perubahan: [],
 	},
 	{
-		kode: "CS305",
+		kode_mata_kuliah: "CS305",
 		nama_mata_kuliah: "Statistika & Probabilitas",
 		sks: 2,
 		kelompok_mata_kuliah: "Sains Dasar",
@@ -398,7 +398,7 @@ export const initialCourses = [
 		catatan_perubahan: [],
 	},
 	{
-		kode: "CS306",
+		kode_mata_kuliah: "CS306",
 		nama_mata_kuliah: "Teori Bahasa & Automata",
 		sks: 2,
 		kelompok_mata_kuliah: "Sains Dasar",
@@ -412,7 +412,7 @@ export const initialCourses = [
 		catatan_perubahan: [],
 	},
 	{
-		kode: "CS307",
+		kode_mata_kuliah: "CS307",
 		nama_mata_kuliah: "Analisis Algoritma",
 		sks: 2,
 		kelompok_mata_kuliah: "Sains Dasar",
@@ -426,7 +426,7 @@ export const initialCourses = [
 		catatan_perubahan: [],
 	},
 	{
-		kode: "CS308",
+		kode_mata_kuliah: "CS308",
 		nama_mata_kuliah: "Technopreneurship",
 		sks: 2,
 		kelompok_mata_kuliah: "Inti Teknik Geomatika",
@@ -440,7 +440,7 @@ export const initialCourses = [
 		catatan_perubahan: [],
 	},
 	{
-		kode: "CS309",
+		kode_mata_kuliah: "CS309",
 		nama_mata_kuliah: "Desain Grafis IT",
 		sks: 2,
 		kelompok_mata_kuliah: "Inti Teknik Geomatika",
@@ -454,7 +454,7 @@ export const initialCourses = [
 		catatan_perubahan: [],
 	},
 	{
-		kode: "CS310",
+		kode_mata_kuliah: "CS310",
 		nama_mata_kuliah: "Fotografi Digital",
 		sks: 2,
 		kelompok_mata_kuliah: "Inti Teknik Geomatika",
@@ -470,7 +470,7 @@ export const initialCourses = [
 
 	// (Lanjutkan menambahkan catatan_perubahan: [] untuk semua objek sisa s/d semester 8)
 	{
-		kode: "CS401",
+		kode_mata_kuliah: "CS401",
 		nama_mata_kuliah: "Rekayasa Perangkat Lunak",
 		sks: 3,
 		kelompok_mata_kuliah: "Sains Dasar",
@@ -484,7 +484,7 @@ export const initialCourses = [
 		catatan_perubahan: [],
 	},
 	{
-		kode: "CS402",
+		kode_mata_kuliah: "CS402",
 		nama_mata_kuliah: "Basis Data Lanjut",
 		sks: 3,
 		kelompok_mata_kuliah: "Sains Dasar",
@@ -498,7 +498,7 @@ export const initialCourses = [
 		catatan_perubahan: [],
 	},
 	{
-		kode: "CS403",
+		kode_mata_kuliah: "CS403",
 		nama_mata_kuliah: "Interaksi Manusia & Komputer",
 		sks: 2,
 		kelompok_mata_kuliah: "Sains Dasar",
@@ -512,7 +512,7 @@ export const initialCourses = [
 		catatan_perubahan: [],
 	},
 	{
-		kode: "CS404",
+		kode_mata_kuliah: "CS404",
 		nama_mata_kuliah: "Keamanan Informasi",
 		sks: 2,
 		kelompok_mata_kuliah: "Sains Dasar",
@@ -526,7 +526,7 @@ export const initialCourses = [
 		catatan_perubahan: [],
 	},
 	{
-		kode: "CS405",
+		kode_mata_kuliah: "CS405",
 		nama_mata_kuliah: "Kecerdasan Buatan",
 		sks: 3,
 		kelompok_mata_kuliah: "Sains Dasar",
@@ -540,7 +540,7 @@ export const initialCourses = [
 		catatan_perubahan: [],
 	},
 	{
-		kode: "CS406",
+		kode_mata_kuliah: "CS406",
 		nama_mata_kuliah: "Metode Numerik",
 		sks: 2,
 		kelompok_mata_kuliah: "Sains Dasar",
@@ -554,7 +554,7 @@ export const initialCourses = [
 		catatan_perubahan: [],
 	},
 	{
-		kode: "CS407",
+		kode_mata_kuliah: "CS407",
 		nama_mata_kuliah: "Sistem Terdistribusi",
 		sks: 3,
 		kelompok_mata_kuliah: "Sains Dasar",
@@ -568,7 +568,7 @@ export const initialCourses = [
 		catatan_perubahan: [],
 	},
 	{
-		kode: "CS408",
+		kode_mata_kuliah: "CS408",
 		nama_mata_kuliah: "Riset Operasi",
 		sks: 2,
 		kelompok_mata_kuliah: "Sains Dasar",
@@ -582,7 +582,7 @@ export const initialCourses = [
 		catatan_perubahan: [],
 	},
 	{
-		kode: "CS409",
+		kode_mata_kuliah: "CS409",
 		nama_mata_kuliah: "Animasi 2D",
 		sks: 2,
 		kelompok_mata_kuliah: "Inti Teknik Geomatika",
@@ -596,7 +596,7 @@ export const initialCourses = [
 		catatan_perubahan: [],
 	},
 	{
-		kode: "CS410",
+		kode_mata_kuliah: "CS410",
 		nama_mata_kuliah: "Audio Editing",
 		sks: 2,
 		kelompok_mata_kuliah: "Inti Teknik Geomatika",
@@ -611,7 +611,7 @@ export const initialCourses = [
 	},
 
 	{
-		kode: "CS501",
+		kode_mata_kuliah: "CS501",
 		nama_mata_kuliah: "Pemrograman Web Lanjut",
 		sks: 3,
 		kelompok_mata_kuliah: "Sains Dasar",
@@ -625,7 +625,7 @@ export const initialCourses = [
 		catatan_perubahan: [],
 	},
 	{
-		kode: "CS502",
+		kode_mata_kuliah: "CS502",
 		nama_mata_kuliah: "Machine Learning",
 		sks: 3,
 		kelompok_mata_kuliah: "Pendukung Rekayasa",
@@ -639,7 +639,7 @@ export const initialCourses = [
 		catatan_perubahan: [],
 	},
 	{
-		kode: "CS503",
+		kode_mata_kuliah: "CS503",
 		nama_mata_kuliah: "Pemrograman Mobile",
 		sks: 3,
 		kelompok_mata_kuliah: "Pendukung Rekayasa",
@@ -653,7 +653,7 @@ export const initialCourses = [
 		catatan_perubahan: [],
 	},
 	{
-		kode: "CS504",
+		kode_mata_kuliah: "CS504",
 		nama_mata_kuliah: "Grafika Komputer",
 		sks: 3,
 		kelompok_mata_kuliah: "Pendukung Rekayasa",
@@ -667,7 +667,7 @@ export const initialCourses = [
 		catatan_perubahan: [],
 	},
 	{
-		kode: "CS505",
+		kode_mata_kuliah: "CS505",
 		nama_mata_kuliah: "Manajemen Proyek TI",
 		sks: 2,
 		kelompok_mata_kuliah: "Sains Dasar",
@@ -681,7 +681,7 @@ export const initialCourses = [
 		catatan_perubahan: [],
 	},
 	{
-		kode: "CS506",
+		kode_mata_kuliah: "CS506",
 		nama_mata_kuliah: "Kriptografi",
 		sks: 2,
 		kelompok_mata_kuliah: "Sains Dasar",
@@ -695,7 +695,7 @@ export const initialCourses = [
 		catatan_perubahan: [],
 	},
 	{
-		kode: "CS507",
+		kode_mata_kuliah: "CS507",
 		nama_mata_kuliah: "Sistem Pendukung Keputusan",
 		sks: 2,
 		kelompok_mata_kuliah: "Sains Dasar",
@@ -709,7 +709,7 @@ export const initialCourses = [
 		catatan_perubahan: [],
 	},
 	{
-		kode: "CS508",
+		kode_mata_kuliah: "CS508",
 		nama_mata_kuliah: "Testing & QA",
 		sks: 2,
 		kelompok_mata_kuliah: "Sains Dasar",
@@ -723,7 +723,7 @@ export const initialCourses = [
 		catatan_perubahan: [],
 	},
 	{
-		kode: "CS509",
+		kode_mata_kuliah: "CS509",
 		nama_mata_kuliah: "Game Development Dasar",
 		sks: 2,
 		kelompok_mata_kuliah: "Inti Teknik Geomatika",
@@ -737,7 +737,7 @@ export const initialCourses = [
 		catatan_perubahan: [],
 	},
 	{
-		kode: "CS510",
+		kode_mata_kuliah: "CS510",
 		nama_mata_kuliah: "Cloud Computing Intro",
 		sks: 2,
 		kelompok_mata_kuliah: "Inti Teknik Geomatika",
@@ -752,7 +752,7 @@ export const initialCourses = [
 	},
 
 	{
-		kode: "CS601",
+		kode_mata_kuliah: "CS601",
 		nama_mata_kuliah: "Metodologi Penelitian",
 		sks: 2,
 		kelompok_mata_kuliah: "Sains Dasar",
@@ -766,7 +766,7 @@ export const initialCourses = [
 		catatan_perubahan: [],
 	},
 	{
-		kode: "CS602",
+		kode_mata_kuliah: "CS602",
 		nama_mata_kuliah: "Data Mining",
 		sks: 3,
 		kelompok_mata_kuliah: "Sains Dasar",
@@ -780,7 +780,7 @@ export const initialCourses = [
 		catatan_perubahan: [],
 	},
 	{
-		kode: "CS603",
+		kode_mata_kuliah: "CS603",
 		nama_mata_kuliah: "Kecerdasan Komputasional",
 		sks: 3,
 		kelompok_mata_kuliah: "Sains Dasar",
@@ -794,7 +794,7 @@ export const initialCourses = [
 		catatan_perubahan: [],
 	},
 	{
-		kode: "CS604",
+		kode_mata_kuliah: "CS604",
 		nama_mata_kuliah: "Pengolahan Citra Digital",
 		sks: 3,
 		kelompok_mata_kuliah: "Sains Dasar",
@@ -808,7 +808,7 @@ export const initialCourses = [
 		catatan_perubahan: [],
 	},
 	{
-		kode: "CS605",
+		kode_mata_kuliah: "CS605",
 		nama_mata_kuliah: "E-Commerce",
 		sks: 2,
 		kelompok_mata_kuliah: "Sains Dasar",
@@ -822,7 +822,7 @@ export const initialCourses = [
 		catatan_perubahan: [],
 	},
 	{
-		kode: "CS606",
+		kode_mata_kuliah: "CS606",
 		nama_mata_kuliah: "Keamanan Jaringan",
 		sks: 2,
 		kelompok_mata_kuliah: "Sains Dasar",
@@ -836,7 +836,7 @@ export const initialCourses = [
 		catatan_perubahan: [],
 	},
 	{
-		kode: "CS607",
+		kode_mata_kuliah: "CS607",
 		nama_mata_kuliah: "Forensik Digital",
 		sks: 2,
 		kelompok_mata_kuliah: "Sains Dasar",
@@ -850,7 +850,7 @@ export const initialCourses = [
 		catatan_perubahan: [],
 	},
 	{
-		kode: "CS608",
+		kode_mata_kuliah: "CS608",
 		nama_mata_kuliah: "Deep Learning",
 		sks: 3,
 		kelompok_mata_kuliah: "Sains Dasar",
@@ -864,7 +864,7 @@ export const initialCourses = [
 		catatan_perubahan: [],
 	},
 	{
-		kode: "CS609",
+		kode_mata_kuliah: "CS609",
 		nama_mata_kuliah: "Internet of Things",
 		sks: 2,
 		kelompok_mata_kuliah: "Inti Teknik Geomatika",
@@ -878,7 +878,7 @@ export const initialCourses = [
 		catatan_perubahan: [],
 	},
 	{
-		kode: "CS610",
+		kode_mata_kuliah: "CS610",
 		nama_mata_kuliah: "UI/UX Advanced",
 		sks: 2,
 		kelompok_mata_kuliah: "Inti Teknik Geomatika",
@@ -893,7 +893,7 @@ export const initialCourses = [
 	},
 
 	{
-		kode: "CS701",
+		kode_mata_kuliah: "CS701",
 		nama_mata_kuliah: "Kerja Praktik / Magang",
 		sks: 4,
 		kelompok_mata_kuliah: "Inti Teknik Geomatika",
@@ -907,7 +907,7 @@ export const initialCourses = [
 		catatan_perubahan: [],
 	},
 	{
-		kode: "CS702",
+		kode_mata_kuliah: "CS702",
 		nama_mata_kuliah: "Kuliah Kerja Nyata",
 		sks: 4,
 		kelompok_mata_kuliah: "Umum",
@@ -921,7 +921,7 @@ export const initialCourses = [
 		catatan_perubahan: [],
 	},
 	{
-		kode: "CS703",
+		kode_mata_kuliah: "CS703",
 		nama_mata_kuliah: "Seminar Proposal",
 		sks: 2,
 		kelompok_mata_kuliah: "Sains Dasar",
@@ -935,7 +935,7 @@ export const initialCourses = [
 		catatan_perubahan: [],
 	},
 	{
-		kode: "CS704",
+		kode_mata_kuliah: "CS704",
 		nama_mata_kuliah: "Sistem Informasi Geografis",
 		sks: 2,
 		kelompok_mata_kuliah: "Sains Dasar",
@@ -949,7 +949,7 @@ export const initialCourses = [
 		catatan_perubahan: [],
 	},
 	{
-		kode: "CS705",
+		kode_mata_kuliah: "CS705",
 		nama_mata_kuliah: "Big Data Analytics",
 		sks: 2,
 		kelompok_mata_kuliah: "Sains Dasar",
@@ -963,7 +963,7 @@ export const initialCourses = [
 		catatan_perubahan: [],
 	},
 	{
-		kode: "CS706",
+		kode_mata_kuliah: "CS706",
 		nama_mata_kuliah: "Natural Language Processing",
 		sks: 2,
 		kelompok_mata_kuliah: "Sains Dasar",
@@ -977,7 +977,7 @@ export const initialCourses = [
 		catatan_perubahan: [],
 	},
 	{
-		kode: "CS707",
+		kode_mata_kuliah: "CS707",
 		nama_mata_kuliah: "Blockchain Tech",
 		sks: 2,
 		kelompok_mata_kuliah: "Sains Dasar",
@@ -991,7 +991,7 @@ export const initialCourses = [
 		catatan_perubahan: [],
 	},
 	{
-		kode: "CS708",
+		kode_mata_kuliah: "CS708",
 		nama_mata_kuliah: "Virtual Reality",
 		sks: 2,
 		kelompok_mata_kuliah: "Sains Dasar",
@@ -1005,7 +1005,7 @@ export const initialCourses = [
 		catatan_perubahan: [],
 	},
 	{
-		kode: "CS709",
+		kode_mata_kuliah: "CS709",
 		nama_mata_kuliah: "Audit TI",
 		sks: 2,
 		kelompok_mata_kuliah: "Sains Dasar",
@@ -1019,7 +1019,7 @@ export const initialCourses = [
 		catatan_perubahan: [],
 	},
 	{
-		kode: "CS710",
+		kode_mata_kuliah: "CS710",
 		nama_mata_kuliah: "Software Quality Assurance",
 		sks: 2,
 		kelompok_mata_kuliah: "Sains Dasar",
@@ -1034,7 +1034,7 @@ export const initialCourses = [
 	},
 
 	{
-		kode: "CS801",
+		kode_mata_kuliah: "CS801",
 		nama_mata_kuliah: "Skripsi / Tugas Akhir",
 		sks: 6,
 		kelompok_mata_kuliah: "Inti Teknik Geomatika",
@@ -1048,7 +1048,7 @@ export const initialCourses = [
 		catatan_perubahan: [],
 	},
 	{
-		kode: "CS802",
+		kode_mata_kuliah: "CS802",
 		nama_mata_kuliah: "Kewirausahaan Lanjut",
 		sks: 2,
 		kelompok_mata_kuliah: "Inti Teknik Geomatika",
@@ -1062,7 +1062,7 @@ export const initialCourses = [
 		catatan_perubahan: [],
 	},
 	{
-		kode: "CS803",
+		kode_mata_kuliah: "CS803",
 		nama_mata_kuliah: "Data Visualization",
 		sks: 2,
 		kelompok_mata_kuliah: "Sains Dasar",
@@ -1076,7 +1076,7 @@ export const initialCourses = [
 		catatan_perubahan: [],
 	},
 	{
-		kode: "CS804",
+		kode_mata_kuliah: "CS804",
 		nama_mata_kuliah: "Network Administration",
 		sks: 2,
 		kelompok_mata_kuliah: "Sains Dasar",
@@ -1090,7 +1090,7 @@ export const initialCourses = [
 		catatan_perubahan: [],
 	},
 	{
-		kode: "CS805",
+		kode_mata_kuliah: "CS805",
 		nama_mata_kuliah: "Digital Marketing IT",
 		sks: 2,
 		kelompok_mata_kuliah: "Inti Teknik Geomatika",
@@ -1104,7 +1104,7 @@ export const initialCourses = [
 		catatan_perubahan: [],
 	},
 	{
-		kode: "CS806",
+		kode_mata_kuliah: "CS806",
 		nama_mata_kuliah: "Computer Vision",
 		sks: 2,
 		kelompok_mata_kuliah: "Sains Dasar",
@@ -1118,7 +1118,7 @@ export const initialCourses = [
 		catatan_perubahan: [],
 	},
 	{
-		kode: "CS807",
+		kode_mata_kuliah: "CS807",
 		nama_mata_kuliah: "Game Design",
 		sks: 2,
 		kelompok_mata_kuliah: "Inti Teknik Geomatika",
@@ -1132,7 +1132,7 @@ export const initialCourses = [
 		catatan_perubahan: [],
 	},
 	{
-		kode: "CS808",
+		kode_mata_kuliah: "CS808",
 		nama_mata_kuliah: "Robotics Intro",
 		sks: 2,
 		kelompok_mata_kuliah: "Sains Dasar",
@@ -1146,7 +1146,7 @@ export const initialCourses = [
 		catatan_perubahan: [],
 	},
 	{
-		kode: "CS809",
+		kode_mata_kuliah: "CS809",
 		nama_mata_kuliah: "Web Security",
 		sks: 2,
 		kelompok_mata_kuliah: "Sains Dasar",
@@ -1160,7 +1160,7 @@ export const initialCourses = [
 		catatan_perubahan: [],
 	},
 	{
-		kode: "CS810",
+		kode_mata_kuliah: "CS810",
 		nama_mata_kuliah: "Enterprise Resource Planning",
 		sks: 2,
 		kelompok_mata_kuliah: "Sains Dasar",
