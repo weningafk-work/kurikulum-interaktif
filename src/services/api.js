@@ -16,12 +16,19 @@ export const CourseService = {
 
         return data.map(course => ({
             ...course,
-            semester: Number(course.semester),
+            kode_mata_kuliah: String(course.kode_mata_kuliah),
+            semester: !isNaN(Number(course.semester)) && course.semester !== '' 
+                ? Number(course.semester) 
+                : course.semester,
             is_pilihan: course.is_pilihan ?? false,
             catatan_perubahan: Array.isArray(course.catatan_perubahan) 
                 ? course.catatan_perubahan.filter(log => log.nama_kurikulum !== "") 
                 : [],
-            kode_mata_kuliah_prasyarat: course.kode_mata_kuliah_prasyarat ?? [],
+            kode_mata_kuliah_prasyarat: Array.isArray(course.kode_mata_kuliah_prasyarat)
+                ? course.kode_mata_kuliah_prasyarat
+                .filter(kode => kode !== null && kode !== "") // Buang data kosong
+                .map(String) // Paksa setiap elemen menjadi String
+                : [],
             sks: Number(course.sks ?? 0)
         }));
     },

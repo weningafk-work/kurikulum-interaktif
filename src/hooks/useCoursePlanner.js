@@ -27,18 +27,26 @@ export const useCoursePlanner = (allCourses) => {
     );
 
     const isCourseLocked = (course) => {
-        if (!course.kode_mata_kuliah_prasyarat || course.kode_mata_kuliah_prasyarat.length === 0) {
-            return false;
-        }
-        return !course.kode_mata_kuliah_prasyarat.every((prereqKode) =>
-            selectedIds.includes(prereqKode)
-        );
-    };
+            // 1. Logika Prasyarat Mata Kuliah (Kode MK)
+            const hasPrereqCode = course.kode_mata_kuliah_prasyarat && course.kode_mata_kuliah_prasyarat.length > 0;
+            const prereqCodeNotMet = hasPrereqCode && !course.kode_mata_kuliah_prasyarat.every((prereqKode) =>
+                selectedIds.includes(prereqKode)
+            );
+
+            // 2. Logika Minimal SKS Prasyarat (Tambahan Baru)
+            // Mengecek apakah total SKS yang sudah dipilih mencukupi syarat minimal SKS matkul ini
+            const minSksRequired = course.minimal_sks_prasyarat || 0;
+            const sksNotMet = totalSks < minSksRequired;
+
+            // Mata kuliah terkunci jika salah satu syarat tidak terpenuhi
+            return prereqCodeNotMet || sksNotMet;
+        };
 
     const toggleCourse = (course) => {
         if (isCourseLocked(course)) return;
 
         const isSelected = selectedIds.includes(course.kode_mata_kuliah);
+        console.log('TEST', isSelected, selectedIds, typeof course.kode_mata_kuliah)
         setActiveHighlight(course.kode_mata_kuliah === activeHighlight ? null : course.kode_mata_kuliah);
 
         if (!isSelected) {
@@ -65,7 +73,7 @@ export const useCoursePlanner = (allCourses) => {
                 alert("MK ini merupakan prasyarat untuk mata kuliah lain yang sudah Anda ambil.");
                 return;
             }
-            setSelectedIds(selectedIds.filter((id) => id !== course.kode));
+            setSelectedIds(selectedIds.filter((id) => id !== course.kode_mata_kuliah));
         }
     };
 

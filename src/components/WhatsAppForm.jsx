@@ -6,14 +6,14 @@ const WhatsAppForm = ({ selectedCourses, onClose, isOpen }) => {
 
     const [formData, setFormData] = useState({
         namaMahasiswa: "",
-        nik: "",
+        nim: "",
         namaDosen: "",
         nomorHp: "",
     });
 
     const handleSend = (e) => {
         e.preventDefault();
-        const { namaMahasiswa, nik, namaDosen, nomorHp } = formData;
+        const { namaMahasiswa, nim, namaDosen, nomorHp } = formData;
 
         // 1. Format Daftar Mata Kuliah
         const daftarMK = selectedCourses
@@ -28,7 +28,7 @@ const WhatsAppForm = ({ selectedCourses, onClose, isOpen }) => {
             `Assalamu'alaikum Wr. Wb. Yth. Bapak/Ibu *${namaDosen}*,\n\n` +
             `Saya mahasiswa bimbingan Anda:\n` +
             `Nama: *${namaMahasiswa}*\n` +
-            `NIK/NIM: *${nik}*\n\n` +
+            `NIK/NIM: *${nim}*\n\n` +
             `Izin untuk berkonsultasi mengenai rencana bimbingan untuk daftar mata kuliah berikut:\n\n` +
             `${daftarMK}\n\n` +
             `Mohon arahan dan kesediaan waktunya. Terima kasih.`;
@@ -94,7 +94,7 @@ const WhatsAppForm = ({ selectedCourses, onClose, isOpen }) => {
                             />
                         </div>
                         <div className="relative">
-                            <label className={labelClass}>NIK / NIM</label>
+                            <label className={labelClass}>NIM</label>
                             <GraduationCap
                                 className="absolute left-3 bottom-3.5 text-slate-400"
                                 size={16}
@@ -103,11 +103,11 @@ const WhatsAppForm = ({ selectedCourses, onClose, isOpen }) => {
                                 required
                                 className={inputClass}
                                 placeholder="2021001"
-                                value={formData.nik}
+                                value={formData.nim}
                                 onChange={(e) =>
                                     setFormData({
                                         ...formData,
-                                        nik: e.target.value,
+                                        nim: e.target.value,
                                     })
                                 }
                             />

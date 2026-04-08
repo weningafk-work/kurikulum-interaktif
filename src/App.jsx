@@ -50,7 +50,7 @@ export default function App() {
 	const [selectedEditLog, setSelectedEditLog] = useState(null);
 
 	const [isPrintModalOpen, setIsPrintModalOpen] = useState(false);
-	const [studentData, setStudentData] = useState({ nama: "", nik: "" });
+	const [studentData, setStudentData] = useState({ nama: "", nim: "" });
 
 	// const handleAddNewCourse = (newCourse) => {
 	// 	setAllCourses((prev) => [...prev, newCourse]);

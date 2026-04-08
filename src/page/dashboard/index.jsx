@@ -65,16 +65,16 @@ const Dashboard = ({ allCourses = [] }) => {
                         <div className="p-3 rounded-2xl bg-blue-100 text-blue-600">
                             <BookOpen size={24} />
                         </div>
-                        <span className="text-[9px] font-black text-slate-400 uppercase tracking-widest group-hover:text-blue-600 transition-colors">
+                        <span className="text-[9px] font-bold text-slate-400 uppercase tracking-widest group-hover:text-blue-600 transition-colors">
                             Klik Detail
                         </span>
                     </div>
 
                     {/* Konten Utama */}
-                    <h3 className="text-4xl font-black text-slate-800 mb-1">
+                    <h3 className="text-4xl font-bold text-slate-800 mb-1">
                         {stats.total}
                     </h3>
-                    <p className="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em]">
+                    <p className="text-[10px] font-bold text-slate-400 uppercase tracking-[0.2em]">
                         Total <span className="text-slate-600">Mata Kuliah</span>
                     </p>
                 </div>
@@ -90,10 +90,10 @@ const Dashboard = ({ allCourses = [] }) => {
                             <div className={`p-3 rounded-2xl ${key === 'Wajib' ? 'bg-orange-100 text-orange-600' : 'bg-emerald-100 text-emerald-600'}`}>
                                 <ShieldCheck size={24} />
                             </div>
-                            <span className="text-[9px] font-black text-slate-400 uppercase tracking-widest group-hover:text-blue-600">Klik Detail</span>
+                            <span className="text-[9px] font-bold text-slate-400 uppercase tracking-widest group-hover:text-blue-600">Klik Detail</span>
                         </div>
-                        <h3 className="text-4xl font-black text-slate-800 mb-1">{value}</h3>
-                        <p className="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em]">Mata Kuliah <span className="text-slate-600">{key}</span></p>
+                        <h3 className="text-4xl font-bold text-slate-800 mb-1">{value}</h3>
+                        <p className="text-[10px] font-bold text-slate-400 uppercase tracking-[0.2em]">Mata Kuliah <span className="text-slate-600">{key}</span></p>
                     </div>
                 ))}
             </div>
@@ -102,7 +102,7 @@ const Dashboard = ({ allCourses = [] }) => {
             <div className="bg-slate-50 border border-slate-200 rounded-[2.5rem] p-8">
                 <div className="flex items-center gap-2 mb-6 opacity-60">
                     <Layers size={14} />
-                    <h4 className="text-[10px] font-black uppercase tracking-widest">Berdasarkan Kelompok</h4>
+                    <h4 className="text-[10px] font-bold uppercase tracking-widest">Berdasarkan Kelompok</h4>
                 </div>
                 <div className="grid grid-cols-2 md:grid-cols-6 gap-3">
                     {Object.entries(stats.kelompokCount).map(([key, value]) => (
@@ -111,8 +111,8 @@ const Dashboard = ({ allCourses = [] }) => {
                             onClick={() => openDetail('kelompok', key)}
                             className="bg-white border border-slate-200 p-4 rounded-2xl hover:border-blue-400 hover:shadow-md transition-all text-left"
                         >
-                            <span className="block text-[9px] font-black text-blue-600 uppercase mb-1">{key}</span>
-                            <span className="text-xl font-black text-slate-800">{value}</span>
+                            <span className="block text-[9px] font-bold text-blue-600 uppercase mb-1">{key}</span>
+                            <span className="text-xl font-bold text-slate-800">{value}</span>
                         </button>
                     ))}
                 </div>
@@ -125,7 +125,7 @@ const Dashboard = ({ allCourses = [] }) => {
                         {/* Modal Header */}
                         <div className="px-8 py-6 border-b border-slate-100 flex justify-between items-center bg-slate-50/50">
                             <div>
-                                <h3 className="text-lg font-black text-slate-800 uppercase tracking-tight">{detailModal.title}</h3>
+                                <h3 className="text-lg font-bold text-slate-800 uppercase tracking-tight">{detailModal.title}</h3>
                                 <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Ditemukan {detailModal.data.length} Mata Kuliah</p>
                             </div>
                             <button 
@@ -141,17 +141,17 @@ const Dashboard = ({ allCourses = [] }) => {
                             <table className="w-full text-left border-collapse">
                                 <thead>
                                     <tr className="border-b-2 border-slate-100">
-                                        <th className="pb-4 text-[10px] font-black text-slate-400 uppercase tracking-widest">Kode</th>
-                                        <th className="pb-4 text-[10px] font-black text-slate-400 uppercase tracking-widest">Nama Mata Kuliah</th>
-                                        <th className="pb-4 text-[10px] font-black text-slate-400 uppercase tracking-widest text-center">SKS</th>
-                                        <th className="pb-4 text-[10px] font-black text-slate-400 uppercase tracking-widest text-center">Sem</th>
-                                        <th className="pb-4 text-[10px] font-black text-slate-400 uppercase tracking-widest">Sifat</th>
+                                        <th className="pb-4 text-[10px] font-bold text-slate-400 uppercase tracking-widest">Kode</th>
+                                        <th className="pb-4 text-[10px] font-bold text-slate-400 uppercase tracking-widest">Nama Mata Kuliah</th>
+                                        <th className="pb-4 text-[10px] font-bold text-slate-400 uppercase tracking-widest text-center">SKS</th>
+                                        <th className="pb-4 text-[10px] font-bold text-slate-400 uppercase tracking-widest text-center">Sem</th>
+                                        <th className="pb-4 text-[10px] font-bold text-slate-400 uppercase tracking-widest">Sifat</th>
                                     </tr>
                                 </thead>
                                 <tbody className="divide-y divide-slate-50">
                                     {detailModal.data.map((course) => (
                                         <tr key={course.kode} className="group hover:bg-blue-50/30 transition-colors">
-                                            <td className="py-4 text-xs font-black text-blue-600">{course.kode}</td>
+                                            <td className="py-4 text-xs font-bold text-blue-600">{course.kode}</td>
                                             <td className="py-4">
                                                 <div className="text-xs font-bold text-slate-700 uppercase">{course.nama_mata_kuliah}</div>
                                                 <div className="text-[9px] text-slate-400 font-medium">{course.kelompok_mata_kuliah}</div>
@@ -159,7 +159,7 @@ const Dashboard = ({ allCourses = [] }) => {
                                             <td className="py-4 text-xs font-bold text-slate-600 text-center">{course.sks}</td>
                                             <td className="py-4 text-xs font-bold text-slate-600 text-center">{course.semester}</td>
                                             <td className="py-4">
-                                                <span className={`text-[9px] font-black px-2 py-1 rounded-md uppercase ${
+                                                <span className={`text-[9px] font-bold px-2 py-1 rounded-md uppercase ${
                                                     course.sifat_mata_kuliah === 'Wajib' 
                                                     ? 'bg-orange-100 text-orange-600' 
                                                     : 'bg-emerald-100 text-emerald-600'
@@ -177,7 +177,7 @@ const Dashboard = ({ allCourses = [] }) => {
                         <div className="px-8 py-4 bg-slate-50 border-t border-slate-100 flex justify-end">
                             <button 
                                 onClick={() => setDetailModal({ ...detailModal, isOpen: false })}
-                                className="px-6 py-2 bg-white border border-slate-200 rounded-xl text-[10px] font-black uppercase tracking-widest text-slate-500 hover:bg-slate-100 transition-colors shadow-sm"
+                                className="px-6 py-2 bg-white border border-slate-200 rounded-xl text-[10px] font-bold uppercase tracking-widest text-slate-500 hover:bg-slate-100 transition-colors shadow-sm"
                             >
                                 Tutup Panel
                             </button>

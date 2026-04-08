@@ -74,7 +74,7 @@ const CourseDetailModal = ({ course, allCourses = [], selectedIds = [], onClose 
                                 {prerequisiteChain.length === 0 ? (
                                     <div className="text-center py-6 bg-slate-50 rounded-xl border border-dashed border-slate-200">
                                         <p className="text-[10px] text-slate-400 font-medium">
-                                            Mata kuliah ini tidak memiliki prasyarat.
+                                            Mata kuliah ini tidak memiliki prasyarat dari mata kuliah lainnya. Jika masih terkunci berarti Anda belum memenuhi minimal 100 SKS (Kuliah Kerja Nyata) atau 120 SKS (Seminar Proposal, Kolokium, Tugas Akhir).
                                         </p>
                                     </div>
                                 ) : (
@@ -139,9 +139,15 @@ const CourseDetailModal = ({ course, allCourses = [], selectedIds = [], onClose 
                         </div>
 
                         {/* Action Button */}
-                        <button className="w-full mt-8 py-3 bg-blue-600 text-white rounded-xl text-xs font-bold flex items-center justify-center gap-2 hover:bg-blue-700 transition-all shadow-lg shadow-blue-100 active:scale-95">
-                            Unduh RPS <ExternalLink size={14} />
-                        </button>
+                        <a
+                            href={course.rps_link}
+                            target="_blank" // Membuka di tab baru agar aplikasi tidak tertutup
+                            rel="noopener noreferrer" // Keamanan tambahan
+                            className="w-full mt-8 py-3 bg-blue-600 text-white rounded-xl text-xs font-bold flex items-center justify-center gap-2 hover:bg-blue-700 transition-all shadow-lg shadow-blue-100 active:scale-95"
+                            >
+                            Unduh Dokumen Terkait <ExternalLink size={14} />
+                        </a>
+
                     </div>
                 </div>
 

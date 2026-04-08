@@ -37,7 +37,7 @@ const Planner = ({
     if (isLoading) {
         return <LoadingSpinner message="Sinkronisasi dengan Database..." />;
     }
-    
+
     const activeObj = useMemo(
         () => allCourses.find((c) => c.kode_mata_kuliah === activeHighlight),
         [activeHighlight, allCourses]
@@ -72,7 +72,7 @@ const Planner = ({
                             <button className="text-white bg-blue-700 hover:bg-blue-800 font-bold rounded-lg text-[10px] px-3 py-2 uppercase tracking-wide transition-all flex items-center gap-1.5 shadow-sm active:scale-95">
                                 <Plus size={14} strokeWidth={3} /> Kelola MK <ChevronDown size={12} />
                             </button>
-                            <div className="absolute left-0 mt-1 w-40 bg-white border border-slate-200 rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50 overflow-hidden">
+                            <div className="absolute left-0 mt-1 w-55 bg-white border border-slate-200 rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50 overflow-hidden">
                                 <button onClick={() => { setFormMode("add"); setIsFormOpen(true); }} className="w-full flex items-center gap-2 px-4 py-2.5 text-[10px] font-bold text-slate-700 hover:bg-slate-50 border-b border-slate-100 transition-colors">
                                     <Plus size={14} className="text-blue-600" /> TAMBAH BARU
                                 </button>
@@ -83,7 +83,7 @@ const Planner = ({
                                     <Trash2 size={14} /> HAPUS DATA
                                 </button>
                                 <button onClick={() => setIsAddLogOpen(true)} className="w-full flex items-center gap-2 px-4 py-2.5 text-[10px] font-bold text-blue-600 hover:bg-blue-50 border-t border-slate-100 transition-colors">
-                                    <ClipboardPenLine size={14} /> TULIS CATATAN BARU
+                                    <ClipboardPenLine size={14} /> TAMBAH CATATAN PERUBAHAN
                                 </button>
                             </div>
                         </div>
@@ -134,7 +134,7 @@ const Planner = ({
                             <section key={sem} className="w-60 flex flex-col h-full bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden">
                                 <div className="flex-none p-3 flex flex-col gap-1 transition-all bg-white border-b border-slate-100 shadow-sm text-slate-800">
                                     <div className="font-black text-[14px] leading-none text-slate-500">
-                                        {sem === 9 ? "Peminatan" : `Semester ${sem}`}
+                                        {sem === 9 ? "Pilihan" : `Semester ${sem}`}
                                         <div className="w-1/2 mt-2">
                                             <span className={`text-[9pt] font-semibold ${SksTerambil > 0 ? "text-green-600" : "text-slate-400"}`}>
                                                 Diambil: {SksTerambil} SKS

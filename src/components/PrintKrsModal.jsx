@@ -5,7 +5,7 @@ import { X, FileText, Printer } from 'lucide-react';
  * Komponen PrintKrsModal
  * @param {boolean} isOpen - Status buka/tutup modal
  * @param {function} onClose - Fungsi untuk menutup modal
- * @param {Object} studentData - Object berisi {nama, nik}
+ * @param {Object} studentData - Object berisi {nama, nim}
  * @param {function} setStudentData - Fungsi untuk mengupdate data mahasiswa
  * @param {function} onExport - Fungsi eksekusi export (ExportService.toPDF)
  */
@@ -27,7 +27,7 @@ const PrintKrsModal = ({
         });
     };
 
-    const isFormValid = studentData.nama && studentData.nik;
+    const isFormValid = studentData.nama && studentData.nim;
 
     return (
         <div className="fixed inset-0 z-[150] flex items-center justify-center p-4 bg-slate-900/40 backdrop-blur-sm animate-in fade-in duration-200">
@@ -67,14 +67,14 @@ const PrintKrsModal = ({
 
                     <div>
                         <label className="block mb-1.5 text-[10px] font-bold text-slate-500 uppercase tracking-wider">
-                            NIK / NIM
+                            NIM
                         </label>
                         <input
                             type="text"
                             className="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 outline-none transition-all"
                             placeholder="Masukkan nomor identitas..."
-                            value={studentData.nik}
-                            onChange={(e) => handleInputChange('nik', e.target.value)}
+                            value={studentData.nim}
+                            onChange={(e) => handleInputChange('nim', e.target.value)}
                         />
                     </div>
 

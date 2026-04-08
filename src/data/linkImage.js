@@ -1,5 +1,5 @@
 const linkImage = {
-    kurikulum: "https://picsum.photos/200/300"
+    kurikulum: "/src/assets/struktur_kurikulum.jpeg"
 }
 
 export default linkImage;
