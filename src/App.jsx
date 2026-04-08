@@ -259,7 +259,7 @@ export default function App() {
 			<Navbar
 				activeMenu={activeMenu}
 				setActiveMenu={setActiveMenu}
-				logoPath="/src/assets/upn_logo.png"
+				logoPath={linkImage.logo}
 			/>
 
 			{/* RENDER HALAMAN AKTIF */}
