@@ -1,78 +1,87 @@
-import { supabase } from "../utils/supabaseClient";
 
-const TABLE_NAME = "kurikulum-geomatika-2025";
+import { eq, asc } from "drizzle-orm";
+import { db } from "./connection_neon";
+import { kurikulum } from "./api_neon";
 
 export const CourseService = {
     /**
-     * Mengambil semua data mata kuliah dari Supabase
+     * Mengambil semua data mata kuliah dari Neon
      */
     async getAllCourses() {
-        const { data, error } = await supabase
-            .from(TABLE_NAME)
-            .select("*")
-            .order("semester", { ascending: true });
+        try {
+            // Menggunakan Drizzle untuk query
+            const results = await db.query.kurikulum.findMany({
+                orderBy: [asc(kurikulum.semester)],
+            });
 
-        if (error) throw error;
+            console.log('LOG DATAAA', results);
 
-        return data.map(course => ({
-            ...course,
-            kode_mata_kuliah: String(course.kode_mata_kuliah),
-            semester: !isNaN(Number(course.semester)) && course.semester !== '' 
-                ? Number(course.semester) 
-                : course.semester,
-            is_pilihan: course.is_pilihan ?? false,
-            catatan_perubahan: Array.isArray(course.catatan_perubahan) 
-                ? course.catatan_perubahan.filter(log => log.nama_kurikulum !== "") 
-                : [],
-            kode_mata_kuliah_prasyarat: Array.isArray(course.kode_mata_kuliah_prasyarat)
-                ? course.kode_mata_kuliah_prasyarat
-                .filter(kode => kode !== null && kode !== "") // Buang data kosong
-                .map(String) // Paksa setiap elemen menjadi String
-                : [],
-            sks: Number(course.sks ?? 0)
-        }));
+            return results.map(course => ({
+                ...course,
+                // Logika transformasi tetap dipertahankan
+                kode_mata_kuliah: String(course.kode_mata_kuliah),
+                semester: !isNaN(Number(course.semester)) && course.semester !== '' 
+                    ? Number(course.semester) 
+                    : course.semester,
+                is_pilihan: !!course.is_pilihan, // Konversi 0/1 atau null ke boolean
+                catatan_perubahan: Array.isArray(course.catatan_perubahan) 
+                    ? course.catatan_perubahan.filter(log => log.nama_kurikulum !== "") 
+                    : [],
+                kode_mata_kuliah_prasyarat: Array.isArray(course.kode_mata_kuliah_prasyarat)
+                    ? course.kode_mata_kuliah_prasyarat
+                        .filter(kode => kode !== null && kode !== "")
+                        .map(String)
+                    : [],
+                sks: Number(course.sks ?? 0)
+            }));
+        } catch (error) {
+            console.error('Error fetching data from Neon:', error);
+            throw error;
+        }
     },
 
     /**
      * Menambahkan mata kuliah baru
-     * @param {Object} newCourse - Data mata kuliah baru
      */
     async createCourse(newCourse) {
-        const { data, error } = await supabase
-            .from(TABLE_NAME)
-            .insert([newCourse])
-            .select();
-
-        if (error) throw error;
-        return data[0];
+        try {
+            const data = await db.insert(kurikulum).values(newCourse).returning();
+            return data[0];
+        } catch (error) {
+            console.error('Error creating course:', error);
+            throw error;
+        }
     },
 
     /**
-     * Memperbarui data mata kuliah berdasarkan kode
-     * @param {Object} updatedCourse - Data mata kuliah yang sudah diubah
+     * Memperbarui data mata kuliah
      */
     async updateCourse(updatedCourse) {
-        const { data, error } = await supabase
-            .from(TABLE_NAME)
-            .update(updatedCourse)
-            .eq("kode_mata_kuliah", updatedCourse.kode_mata_kuliah) // Pastikan primary key tepat
-            .select();
-
-        if (error) throw error;
-        return data[0];
+        try {
+            const data = await db.update(kurikulum)
+                .set(updatedCourse)
+                .where(eq(kurikulum.kode_mata_kuliah, updatedCourse.kode_mata_kuliah))
+                .returning();
+            return data[0];
+        } catch (error) {
+            console.error('Error updating course:', error);
+            throw error;
+        }
     },
 
     /**
-     * Menghapus mata kuliah (Opsional, untuk fitur Admin)
-     * @param {string} kode - Kode mata kuliah yang akan dihapus
+     * Menghapus mata kuliah
      */
     async deleteCourse(kode) {
-        const { error } = await supabase
-            .from(TABLE_NAME)
-            .delete()
-            .eq("kode_mata_kuliah", kode);
-
-        if (error) throw error;
-        return true;
+        try {
+            await db.delete(kurikulum)
+                .where(eq(kurikulum.kode_mata_kuliah, kode));
+            return true;
+        } catch (error) {
+            console.error('Error deleting course:', error);
+            throw error;
+        }
     }
 };
+
+export default CourseService;
