@@ -17,7 +17,7 @@ const AddCourseForm = ({ onAdd, onUpdate, onDelete, onClose, allCourses, mode, i
 		minimal_sks_prasyarat: 0,
 	});
 
-	// 1. Opsi-opsi untuk Dropdown
+	// Opsi-opsi untuk Dropdown
 	const kelompokOptions = [
 		{ value: "Umum", label: "Umum" },
 		{ value: "Sains Dasar", label: "Sains Dasar" },
@@ -36,7 +36,7 @@ const AddCourseForm = ({ onAdd, onUpdate, onDelete, onClose, allCourses, mode, i
 		label: `${c.kode_mata_kuliah} - ${c.nama_mata_kuliah}`,
 	}));
 
-	// 2. Custom Style yang Compact (Mengecilkan ukuran dropdown)
+	// Custom Style yang Compact (Mengecilkan ukuran dropdown)
 	const compactSelectStyles = {
 		control: (base, state) => ({
 			...base,

@@ -20,7 +20,7 @@ const CourseCard = ({
     onSelect,
     onDetail,
 }) => {
-    // 1. Mapping warna berdasarkan Kelompok MK (Refactored dari switch ke Object agar lebih clean)
+    // Mapping warna berdasarkan Kelompok MK (Refactored dari switch ke Object agar lebih clean)
     const groupStyles = {
         "Umum": "bg-slate-100 text-slate-600 border-slate-200",
         "Sains Dasar": "bg-amber-100 text-amber-700 border-amber-200",

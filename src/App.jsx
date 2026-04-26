@@ -20,7 +20,7 @@ import documents from "./data/documentData";
 import linkImage from "./data/linkImage";
 import { useAdminAccess } from "./hooks/useAdminAccess";
 import { useCoursePlanner } from "./hooks/useCoursePlanner";
-import { CourseService } from "./services/api";
+import { CourseService } from "./services/api.local";
 import Swal from "sweetalert2";
 
 
@@ -52,22 +52,6 @@ export default function App() {
 	const [isPrintModalOpen, setIsPrintModalOpen] = useState(false);
 	const [studentData, setStudentData] = useState({ nama: "", nim: "" });
 
-	// const handleAddNewCourse = (newCourse) => {
-	// 	setAllCourses((prev) => [...prev, newCourse]);
-	// 	setIsFormOpen(false);
-	// };
-
-	// const handleUpdateCourse = (updatedCourse) => {
-	// 	setAllCourses((prevCourses) =>
-	// 		prevCourses.map((course) =>
-	// 			course.kode === updatedCourse.kode ? updatedCourse : course,
-	// 		),
-	// 	);
-
-	// 	console.log(
-	// 		`Berhasil memperbarui data: ${updatedCourse.nama_mata_kuliah}`,
-	// 	);
-	// };
 
 	const handleEditLogAction = (course, log) => {
 		setSelectedEditLog({ course, log });

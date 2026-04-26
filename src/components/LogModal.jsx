@@ -17,7 +17,7 @@ const LogModal = ({ allCourses, onUpdate, onEditLog, onClose, isAdmin = true, is
     // Default filter null (Menampilkan semua riwayat)
     const [selectedFilter, setSelectedFilter] = useState(null);
 
-    // 1. Ambil daftar Mata Kuliah yang memiliki catatan perubahan
+    // Ambil daftar Mata Kuliah yang memiliki catatan perubahan
     const coursesWithLogs = useMemo(
         () =>
             allCourses.filter(
@@ -28,19 +28,19 @@ const LogModal = ({ allCourses, onUpdate, onEditLog, onClose, isAdmin = true, is
         [allCourses],
     );
 
-    // 2. Opsi untuk Dropdown Filter
+    // Opsi untuk Dropdown Filter
     const filterOptions = coursesWithLogs.map((c) => ({
         value: c.kode_mata_kuliah,
         label: `[${c.kode_mata_kuliah}] ${c.nama_mata_kuliah}`,
     }));
 
-    // 3. Logic Filtering berdasarkan pilihan user
+    // Logic Filtering berdasarkan pilihan user
     const filteredDisplay = useMemo(() => {
         if (!selectedFilter) return coursesWithLogs;
         return coursesWithLogs.filter((c) => c.kode_mata_kuliah === selectedFilter.value);
     }, [selectedFilter, coursesWithLogs]);
 
-    // 4. Action: Hapus Log
+    // Action: Hapus Log
     const handleDeleteLog = (course, logId) => {
         Swal.fire({
             title: "Hapus Catatan?",

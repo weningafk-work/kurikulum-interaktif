@@ -37,26 +37,6 @@ const Navbar = ({ activeMenu, setActiveMenu, logoPath = "/assets/upn_logo.png" }
                         </span>
                     </div>
                 </div>
-
-                {/* Sisi Kanan: Menu Links (Uncomment jika ingin digunakan) */}
-                {/* <div className="flex items-center gap-6">
-                    <div className="hidden md:flex items-center gap-6">
-                        {menuItems.map((menu) => (
-                            <button
-                                key={menu}
-                                onClick={() => setActiveMenu && setActiveMenu(menu)}
-                                className={`text-[11px] font-black uppercase tracking-widest transition-all pb-1 border-b-2 ${
-                                    activeMenu === menu
-                                        ? "text-yellow-400 border-yellow-400"
-                                        : "text-white border-transparent hover:text-yellow-400"
-                                }`}
-                            >
-                                {menu}
-                            </button>
-                        ))}
-                    </div>
-                </div> */}
-
             </div>
         </nav>
     );

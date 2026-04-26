@@ -26,8 +26,8 @@ export const CourseService = {
                 : [],
             kode_mata_kuliah_prasyarat: Array.isArray(course.kode_mata_kuliah_prasyarat)
                 ? course.kode_mata_kuliah_prasyarat
-                .filter(kode => kode !== null && kode !== "") // Buang data kosong
-                .map(String) // Paksa setiap elemen menjadi String
+                .filter(kode => kode !== null && kode !== "") 
+                .map(String) 
                 : [],
             sks: Number(course.sks ?? 0)
         }));

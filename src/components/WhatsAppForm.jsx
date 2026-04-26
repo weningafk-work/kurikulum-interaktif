@@ -15,7 +15,7 @@ const WhatsAppForm = ({ selectedCourses, onClose, isOpen }) => {
         e.preventDefault();
         const { namaMahasiswa, nim, namaDosen, nomorHp } = formData;
 
-        // 1. Format Daftar Mata Kuliah
+        // Format Daftar Mata Kuliah
         const daftarMK = selectedCourses
             .map(
                 (mk, i) =>
@@ -23,7 +23,7 @@ const WhatsAppForm = ({ selectedCourses, onClose, isOpen }) => {
             )
             .join("\n");
 
-        // 2. Susun Template Pesan
+        // Susun Template Pesan
         const pesan =
             `Assalamu'alaikum Wr. Wb. Yth. Bapak/Ibu *${namaDosen}*,\n\n` +
             `Saya mahasiswa bimbingan Anda:\n` +
@@ -33,13 +33,13 @@ const WhatsAppForm = ({ selectedCourses, onClose, isOpen }) => {
             `${daftarMK}\n\n` +
             `Mohon arahan dan kesediaan waktunya. Terima kasih.`;
 
-        // 3. Bersihkan Nomor HP (Hapus karakter non-digit)
+        // Bersihkan Nomor HP (Hapus karakter non-digit)
         let cleanPhone = nomorHp.replace(/\D/g, "");
         if (cleanPhone.startsWith("0")) {
             cleanPhone = "62" + cleanPhone.slice(1);
         }
 
-        // 4. Redirect ke WA
+        // Redirect ke WA
         const waUrl = `https://api.whatsapp.com/send?phone=${cleanPhone}&text=${encodeURIComponent(pesan)}`;
         window.open(waUrl, "_blank");
         onClose();

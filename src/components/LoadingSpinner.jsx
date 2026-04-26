@@ -5,10 +5,8 @@ const LoadingSpinner = ({ message = "Memuat Data Kurikulum..." }) => {
   return (
     <div className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-slate-50/80 backdrop-blur-sm">
       <div className="relative flex items-center justify-center">
-        {/* Ring Luar (Animasi Statis) */}
         <div className="h-16 w-16 rounded-full border-4 border-slate-200"></div>
         
-        {/* Spinner Utama (Animasi Putar) */}
         <Loader2 
           className="absolute h-16 w-16 animate-spin text-blue-600" 
           strokeWidth={2.5}
@@ -25,7 +23,6 @@ const LoadingSpinner = ({ message = "Memuat Data Kurikulum..." }) => {
         </p>
       </div>
 
-      {/* Dekorasi kecil untuk nuansa Akademik/Geomatika */}
       <div className="absolute bottom-10 text-slate-400 text-xs tracking-widest uppercase">
         UPN "Veteran" Yogyakarta
       </div>

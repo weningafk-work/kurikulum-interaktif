@@ -1,5 +1,6 @@
 import React from 'react';
 import { X, AlertCircle, CircleCheck, CircleX, ExternalLink } from 'lucide-react';
+import Swal from 'sweetalert2';
 
 /**
  * Komponen CourseDetailModal
@@ -15,21 +16,28 @@ const CourseDetailModal = ({ course, allCourses = [], selectedIds = [], onClose 
     const getPrerequisiteChain = (targetCourse) => {
         const chain = [];
         const visited = new Set();
+        const added = new Set(); // untuk menjaga chain tetap unik
 
         const findChain = (kode_mata_kuliah) => {
-            const current = allCourses.find((c) => c.kode_mata_kuliah === kode_mata_kuliah);
-            if (
-                current &&
-                current.kode_mata_kuliah_prasyarat &&
-                !visited.has(kode_mata_kuliah)
-            ) {
-                visited.add(kode_mata_kuliah);
+            if (visited.has(kode_mata_kuliah)) return;
+            visited.add(kode_mata_kuliah);
+
+            const current = allCourses.find(
+                (c) => c.kode_mata_kuliah === kode_mata_kuliah
+            );
+
+            if (current && current.kode_mata_kuliah_prasyarat) {
                 current.kode_mata_kuliah_prasyarat.forEach((pKode) => {
-                    const prereq = allCourses.find((c) => c.kode_mata_kuliah === pKode);
-                    if (prereq) {
+                    const prereq = allCourses.find(
+                        (c) => c.kode_mata_kuliah === pKode
+                    );
+
+                    if (prereq && !added.has(prereq.kode_mata_kuliah)) {
+                        added.add(prereq.kode_mata_kuliah);
                         chain.push(prereq);
-                        findChain(pKode);
                     }
+
+                    findChain(pKode);
                 });
             }
         };
@@ -67,7 +75,7 @@ const CourseDetailModal = ({ course, allCourses = [], selectedIds = [], onClose 
                         {/* Section: Prasyarat */}
                         <div className="mb-6">
                             <p className="text-[9px] text-slate-400 font-bold uppercase mb-4 flex items-center gap-2">
-                                <AlertCircle size={12} /> Alur Prasyarat
+                                <AlertCircle size={12} /> Prasyarat
                             </p>
 
                             <div className="space-y-3 relative">
@@ -80,19 +88,6 @@ const CourseDetailModal = ({ course, allCourses = [], selectedIds = [], onClose 
                                 ) : (
                                     prerequisiteChain.map((step, index) => (
                                         <div key={step.kode_mata_kuliah} className="flex items-start gap-3 relative">
-                                            {/* Garis Alur Vertikal */}
-                                            {index !== prerequisiteChain.length - 1 && (
-                                                <div className="absolute left-[11px] top-6 w-[2px] h-6 bg-slate-200" />
-                                            )}
-
-                                            <div className={`z-10 w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-bold shrink-0 ${
-                                                selectedIds.includes(step.kode_mata_kuliah)
-                                                    ? "bg-green-500 text-white"
-                                                    : "bg-slate-200 text-slate-500"
-                                            }`}>
-                                                {index + 1}
-                                            </div>
-
                                             <div className="flex-1 bg-white p-2.5 rounded-lg border border-slate-200 flex justify-between items-center shadow-sm">
                                                 <div>
                                                     <span className="text-[9px] font-black text-blue-500 block">
@@ -140,12 +135,23 @@ const CourseDetailModal = ({ course, allCourses = [], selectedIds = [], onClose 
 
                         {/* Action Button */}
                         <a
-                            href={course.rps_link}
-                            target="_blank" // Membuka di tab baru agar aplikasi tidak tertutup
-                            rel="noopener noreferrer" // Keamanan tambahan
-                            className="w-full mt-8 py-3 bg-blue-600 text-white rounded-xl text-xs font-bold flex items-center justify-center gap-2 hover:bg-blue-700 transition-all shadow-lg shadow-blue-100 active:scale-95"
-                            >
-                            Unduh Dokumen Terkait <ExternalLink size={14} />
+                            href={course.rps_link || "#"}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onClick={(e) => {
+                                if (!course.rps_link) {
+                                    e.preventDefault(); // cegah buka tab baru
+                                    Swal.fire({
+                                        icon: "warning",
+                                        title: "Link tidak tersedia",
+                                        text: "Dokumen belum tersedia untuk diunduh.",
+                                        confirmButtonText: "OK",
+                                    });
+                                }
+                            }}
+                        className="w-full mt-8 py-3 bg-blue-600 text-white rounded-xl text-xs font-bold flex items-center justify-center gap-2 hover:bg-blue-700 transition-all shadow-lg shadow-blue-100 active:scale-95"
+                        >
+                        Unduh Dokumen Terkait <ExternalLink size={14} />
                         </a>
 
                     </div>
