@@ -13,7 +13,7 @@ const faqData = [
     },
     {
         q: "Apa arti warna pada kartu mata kuliah?",
-        a: "Putih menunjukkan mata kuliah tersedia, Hijau berarti sudah diambil/terpenuhi (otomatis berwarna hijau saat dipilih), dan Abu-abu atau ada tanda Gembok berarti prasyarat belum terpenuhi sehingga belum dapat mengambil mata kuliah tersebut.",
+        a: "Putih menunjukkan mata kuliah tersedia, Hijau berarti sudah diambil/terpenuhi (otomatis berwarna hijau saat dipilih/ select, pastikan Anda hanya memilih mata kuliah sebelumnya yang sudah lulus dengan nilai minimal D sebagai prasyarat pengambilan mata kuliah semester setelahnya), dan Abu-abu atau ada tanda Gembok berarti prasyarat belum terpenuhi sehingga belum dapat mengambil mata kuliah tersebut.",
     },
     {
         q: "Bagaimana cara kerja prasyarat?",

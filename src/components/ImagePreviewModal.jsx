@@ -78,7 +78,7 @@ const ImagePreviewModal = ({
                 <img
                     src={imageUrl}
                     alt="Full Preview"
-                    className="max-w-none shadow-2xl rounded-lg cursor-zoom-in transition-transform duration-300 hover:scale-[1.01]"
+                    className="w-full shadow-2xl rounded-lg cursor-zoom-in transition-transform duration-300 hover:scale-[1.01]"
                     onClick={() => window.open(imageUrl, "_blank")}
                     title="Klik untuk melihat resolusi penuh"
                 />
