@@ -54,7 +54,7 @@ const Planner = ({
                 <p className="text-sm font-medium text-slate-500 leading-relaxed">
                     Visualisasi struktur kurikulum interaktif yang dapat dicoba untuk
                     <a
-                        href="https://www.youtube.com/watch?v=RnbqVremDo8"
+                        href="https://youtu.be/6t_gPfa9BSM"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-blue-600 font-bold hover:underline hover:text-blue-700 transition-colors ml-1"

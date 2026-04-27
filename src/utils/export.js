@@ -1,7 +1,6 @@
 import jsPDF from "jspdf";
 import autoTable from "jspdf-autotable";
 import * as XLSX from "xlsx";
-
 const ExportService = {
     /**
      * Export data ke format PDF (KRS Style)
@@ -9,7 +8,6 @@ const ExportService = {
     toPDF: (data, totalSks, info) => {
         const doc = new jsPDF();
         const pageWidth = doc.internal.pageSize.getWidth();
-
         // --- 1. HEADER TITLE ---
         doc.setFont("helvetica", "bold");
         doc.setFontSize(16);
@@ -23,11 +21,9 @@ const ExportService = {
         doc.text("PROGRAM STUDI TEKNIK GEOMATIKA, FTME, UPN VETERAN YOGYAKARTA", pageWidth / 2, 25, {
             align: "center",
         });
-
         // Garis Pemisah Header (Posisi Y sedikit diturunkan karena ada baris baru)
         doc.setLineWidth(0.5);
         doc.line(14, 28, pageWidth - 14, 28);
-
         // --- 2. IDENTITAS MAHASISWA ---
         doc.setFont("helvetica", "normal");
         doc.setFontSize(10);
@@ -37,16 +33,40 @@ const ExportService = {
         doc.text(`: ${info.nim}`, 45, 43);
         doc.text("Tanggal Cetak", 14, 48);
         doc.text(`: ${new Date().toLocaleDateString("id-ID")}`, 45, 48);
-
+        
         // --- 3. PROSES GROUPING DATA ---
-        const sortedData = [...data].sort((a, b) => a.semester - b.semester);
+        const sortedData = [...data].sort((a, b) => {
+            const isAPilihan = a.semester === "Pilihan" || a.is_pilihan === 1;
+            const isBPilihan = b.semester === "Pilihan" || b.is_pilihan === 1;
+            
+            // Jika A pilihan tapi B angka, A harus di bawah (return 1)
+            if (isAPilihan && !isBPilihan) return 1;
+            // Jika B pilihan tapi A angka, B harus di bawah (return -1)
+            if (!isAPilihan && isBPilihan) return -1;
+            
+            // Jika keduanya angka semester, urutkan berdasarkan angka
+            if (!isAPilihan && !isBPilihan) {
+                return parseInt(a.semester, 10) - parseInt(b.semester, 10);
+            }
+
+            return 0; // Jika keduanya pilihan
+        });
+            
         const groupedData = [];
         let currentSemester = null;
 
         sortedData.forEach((c) => {
-            const isNumber = !isNaN(parseInt(c.semester, 10));
-            const label = isNumber ? `SEMESTER ${c.semester}` : c.semester.toUpperCase();
+            // Logika penentuan Label Grouping
+            let label;
+            if (c.semester === "Pilihan" || c.is_pilihan === 1) {
+                label = "PILIHAN";
+            } else {
+                // Hanya jika benar-benar angka baru pakai label SEMESTER
+                const num = parseInt(c.semester, 10);
+                label = !isNaN(num) ? `SEMESTER ${num}` : "LAIN-LAIN";
+            }
 
+            // Jika ganti semester/group, tambahkan baris Header Abu-abu
             if (label !== currentSemester) {
                 currentSemester = label;
                 groupedData.push([
@@ -62,16 +82,19 @@ const ExportService = {
                     },
                 ]);
             }
+
+            // Masukkan baris data mata kuliah
             groupedData.push([
                 c.kode_mata_kuliah,
                 c.nama_mata_kuliah,
                 c.sks,
-                isNumber ? `Sem ${c.semester}` : c.semester,
+                (c.semester === "Pilihan" || c.is_pilihan === 1) ? "Pilihan" : `Sem ${c.semester}`, // Kolom Sem tampil sesuai request
                 c.kelompok_mata_kuliah,
                 c.sifat_mata_kuliah || "-",
             ]);
         });
-
+        
+        //autotable
         autoTable(doc, {
             startY: 55, // Disesuaikan agar tidak menabrak identitas
             head: [["Kode", "Mata Kuliah", "SKS", "Sem", "Kelompok", "Sifat"]],
@@ -111,26 +134,23 @@ const ExportService = {
         // --- 4. CATATAN DOSEN & SIGNATURE AREA ---
         let finalY = doc.lastAutoTable.finalY + 15;
         const pageHeight = doc.internal.pageSize.getHeight();
-
         // Cek apakah sisa halaman cukup untuk Catatan + Tanda Tangan (butuh sekitar 60-70 unit)
         if (finalY > pageHeight - 70) {
             doc.addPage();
             finalY = 25;
         }
+        
 
         // 4a. Kolom Catatan Dosen
         doc.setFontSize(10);
         doc.setFont("helvetica", "bold");
         doc.text("Catatan Dosen Pembimbing Akademik:", 14, finalY);
-
         doc.setFont("helvetica", "normal");
         doc.setLineWidth(0.2);
         // Membuat kotak/garis tempat catatan (opsional, agar terlihat seperti form)
         doc.rect(14, finalY + 2, pageWidth - 28, 30); // x, y, width, height
-
         // 4b. Area Tanda Tangan (Posisi Y digeser ke bawah setelah kotak catatan)
         const signatureY = finalY + 45; 
-
         doc.setFontSize(10);
         doc.text(
             "Yogyakarta, " + new Date().toLocaleDateString("id-ID"),
@@ -139,20 +159,17 @@ const ExportService = {
         );
         doc.text("Mengetahui,", pageWidth - 80, signatureY);
         doc.text("Pembimbing Akademik,", pageWidth - 80, signatureY + 5);
-
         doc.setFont("helvetica", "bold");
         doc.text("( __________________________ )", pageWidth - 80, signatureY + 35);
         doc.setFontSize(9);
         doc.text(
-            "NIP. ...........................",
+            "NIP.                        ",
             pageWidth - 80,
             signatureY + 40,
         );
-
         const fileName = `KRS_${info.nim}_${info.nama.replace(/\s+/g, "_")}.pdf`;
         doc.save(fileName);
     },
-
     toExcel: (data) => {
         const ws = XLSX.utils.json_to_sheet(data);
         const wb = XLSX.utils.book_new();
@@ -160,5 +177,4 @@ const ExportService = {
         XLSX.writeFile(wb, "krs_akademik.xlsx");
     },
 };
-
 export default ExportService;

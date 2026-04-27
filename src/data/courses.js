@@ -1476,7 +1476,7 @@ export const initialCourses = [
   },
   {
     "kode_mata_kuliah": 117250372,
-    "nama_mata_kuliah": "Infrastuktur Informasi Geospasial",
+    "nama_mata_kuliah": "Infrastruktur Informasi Geospasial",
     "sks": 2,
     "semester": "Pilihan",
     "kelompok_mata_kuliah": "Inti Teknik Geomatika",
