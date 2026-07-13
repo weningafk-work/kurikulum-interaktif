@@ -62,7 +62,7 @@ const CourseDetailModal = ({ course, allCourses = [], selectedIds = [], onClose 
                         {/* Header Info */}
                         <div className="mb-6">
                             <span className="text-[10px] font-bold text-blue-600 uppercase tracking-widest block mb-1">
-                                {course.kode_mata_kuliah} • Semester {course.semester}
+                                {course.kode_mata_kuliah} • {course.is_pilihan === 1 || course.is_pilihan === "1" ? "Pilihan" : `Semester ${course.semester}`}
                             </span>
                             <h2 className="text-xl font-black text-slate-800 leading-tight">
                                 {course.nama_mata_kuliah}
