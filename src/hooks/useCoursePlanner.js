@@ -64,6 +64,22 @@ export const useCoursePlanner = (allCourses) => {
             newSelection.add(course.kode_mata_kuliah);
             setSelectedIds(Array.from(newSelection));
         } else {
+            // 1. [DITAMBAHKAN] Mencari apakah ada matkul terpilih lain yang butuh matkul ini sebagai prasyarat
+            const dependentCourse = selectedCourses.find(
+                (selected) =>
+                    selected.kode_mata_kuliah_prasyarat &&
+                    selected.kode_mata_kuliah_prasyarat.includes(course.kode_mata_kuliah)
+            );
+
+            // 2. [DITAMBAHKAN] Jika ada matkul yang bergantung, tampilkan popup & batalkan unselect
+            if (dependentCourse) {
+                alert(
+                    `⚠️ Tidak bisa dibatalkan karena sudah menjadi prasyarat mata kuliah ${dependentCourse.nama_mata_kuliah} ⚠️`
+                );
+                return; // [DITAMBAHKAN] Menghentikan fungsi agar state TIDAK terupdate
+            }
+
+            // 3. [DIUBAH] Hanya dieksekusi jika lolos dari pengecekan di atas (aman)
             setSelectedIds(selectedIds.filter((id) => id !== course.kode_mata_kuliah));
         }
     };
